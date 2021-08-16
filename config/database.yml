@@ -1,0 +1,24 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: rey
+  password: tuta2020
+ 
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: tuta_development
+
+  
+test:
+  <<: *default
+  database: tuta_test
+
+
+production:
+  <<: *default
+  database: tuta_production
+  username: tuta
+  password: <%= ENV['TUTA_DATABASE_PASSWORD'] %>
